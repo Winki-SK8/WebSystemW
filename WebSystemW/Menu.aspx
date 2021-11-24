@@ -3,6 +3,6 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="FomMenu">
-        <h1>hola mundo</h1>
+        <h1>hola mundo C#</h1>
     </div>
 </asp:Content>
