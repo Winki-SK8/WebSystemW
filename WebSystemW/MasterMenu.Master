@@ -34,7 +34,7 @@
                   <li>
                     <div class="iocn-link">
                       <a href="#">
-                        <i class='bx bx-copy-alt'></i>
+                        <i class='bx bx-laptop'></i>
                         <span class="link_name">Activo Fijo</span>
                       </a>
                       <i class='bx bxs-chevron-down arrow' ></i>
@@ -49,13 +49,13 @@
                   <li>
                     <div class="iocn-link">
                       <a href="#">
-                        <i class='bx bx-book-alt' ></i>
-                        <span class="link_name">Posts</span>
+                        <i class='bx bx-box'></i>
+                        <span class="link_name">Ticket</span>
                       </a>
                       <i class='bx bxs-chevron-down arrow' ></i>
                     </div>
                     <ul class="sub-menu">
-                      <li><a class="link_name" href="#">Posts</a></li>
+                      <li><a class="link_name" href="#">Ticket</a></li>
                       <li><a href="#">Web Design</a></li>
                       <li><a href="#">Login Form</a></li>
                       <li><a href="#">Card Design</a></li>
@@ -127,10 +127,12 @@
                 <!--<img src="image/profile.jpg" alt="profileImg">-->
               </div>
               <div class="name-job">
-                <div class="profile_name">Prem Shahi</div>
-                <div class="job">Web Desginer</div>
+                <div class="profile_name">Wed System W</div>
+                <div class="job">Web programmer</div>
               </div>
-              <i class='bx bx-log-out' ></i>
+                <a href="https://localhost:44311/LoginUser.aspx">
+                    <i class='bx bx-log-out' ></i>
+                </a>        
             </div>
           </li>
         </ul>

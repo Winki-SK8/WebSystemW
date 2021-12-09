@@ -6,9 +6,9 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <!--Bootstrap-->
-    <link href="Content/bootstrap.min.css" rel="stylesheet" />
-    <script src="Scripts/bootstrap.min.js"></script>
-    <script src="Scripts/jquery-3.0.0.js"></script>
+    <link href="Bootstrap4/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="Bootstrap4/Scripts/bootstrap.min.js"></script>
+    <script src="Bootstrap4/Scripts/jquery-3.0.0.js"></script>
     <!--css-->
     <link href="style/estilo.css" rel="stylesheet" type="text/css" />
     <title>Recover Password</title>

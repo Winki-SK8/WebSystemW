@@ -7,10 +7,11 @@ using System.Web;
 
 namespace WebSystemW.Class
 {
-    public class Login
+    public class Login_M
     {
         #region"Variables"
-        private string sID_User;
+        private string sID_User_M;
+        private string sPermission;
         private string sRecovery_Code;
         private string sPassword;
         private StringBuilder sConsulta;
@@ -19,15 +20,26 @@ namespace WebSystemW.Class
         #endregion
 
         #region "Propiedades"
-        public string ID_User
+        public string ID_User_M
         {
             get
             {
-                return sID_User;
+                return sID_User_M;
             }
             set
             {
-                sID_User = value;
+                sID_User_M = value;
+            }
+        }
+        public string Permission
+        {
+            get
+            {
+                return sPermission;
+            }
+            set
+            {
+                sPermission = value;
             }
         }
         public string Recovery_Code
@@ -55,49 +67,49 @@ namespace WebSystemW.Class
         #endregion
 
         #region "Construtores"
-        public Login()
+        public Login_M()
         {
-            sID_User = General.GeneraNewId(0);
+            sID_User_M = General.GeneraNewId(0);
         }
 
-        public Login(String _sID_User)
+        public Login_M(String _sID_User)
         {
-            sID_User = _sID_User;
+            sID_User_M = _sID_User;
             RecuperaLogin();
         }
         #endregion
 
         #region "Funciones"
+
         public void RecuperaLogin()
         {
             sConsulta = new StringBuilder();
             sConsulta.AppendLine("select *");
-            sConsulta.AppendLine("from LOGIN as L");
-            sConsulta.AppendLine("inner join User as U on L.ID_User = U.ID_User");
-            sConsulta.AppendLine("where U.ID_User ='" + sID_User + "' AND U.Password = '" + sPassword + "' ");
+            sConsulta.AppendLine("from USER_MASTER as UM");
+            sConsulta.AppendLine("inner join USER_CONTROL as U on UM.ID_User_M = U.ID_User");
+            sConsulta.AppendLine("where U.ID_User ='" + sID_User_M + "' AND U.Password = '" + sPassword + "' ");
 
             DataTable dtLogin = Conexion.EjecutarConsultaDatatable(sConsulta.ToString());
 
             if (dtLogin.Rows.Count != 0)
             {
+                sPermission = dtLogin.Rows[0]["Permission"].ToString();
                 sRecovery_Code = dtLogin.Rows[0]["Recovery_Code"].ToString();
                 sPassword = dtLogin.Rows[0]["Password"].ToString();
 
-                ObtieneLogin();
-
             }
         }
-        public static DataTable ObtieneLogin()
+        //Metodo para Ingresar como Master a la app
+        public static DataTable Ingresar(String User, String Pass)
         {
             StringBuilder sConsulta = new StringBuilder();
-
             sConsulta.AppendLine("select *");
-            sConsulta.AppendLine("from LOGIN as L");
-            sConsulta.AppendLine("inner join User as U on L.ID_User = U.ID_User");
+            sConsulta.AppendLine("from USER_MASTER as UM");
+            sConsulta.AppendLine("inner join USER_CONTROL as U ON UM.ID_User_M = U.ID_User");
+            sConsulta.AppendLine("Where UM.ID_User_M ='" + User + "' and U.Password ='" + Pass + "'");
 
-            DataTable dtLogin = Conexion.EjecutarConsultaDatatable(sConsulta.ToString());
-
-            return dtLogin;
+            DataTable dt = Conexion.EjecutarConsultaDatatable(sConsulta.ToString());
+            return dt;
         }
 
         #endregion

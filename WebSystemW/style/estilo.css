@@ -43,3 +43,7 @@ body {
 .btndual{
     margin: 2px;
 }
+
+.btnSalirW #imgbtnSalir{
+    fill: currentColor !important;
+}
